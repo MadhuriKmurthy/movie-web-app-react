@@ -10,6 +10,8 @@ function SearchMovies(props){
         try{
             const response = await fetch(url)
             const data = await response.json()
+           
+            if(data.Error === undefined)
             props.addFavorite(data);
 
         }catch(err){

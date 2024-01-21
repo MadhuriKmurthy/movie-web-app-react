@@ -8,11 +8,15 @@ function App() {
   const addFavorite = (movie) => {
     setFavorites([...favorites, movie])
   }
+
+  const removeFavorite = (movie) => {
+    setFavorites(favorites.filter(f => f.imdbID !== movie.imdbID))
+  }
   console.log(favorites)
   return (
     <div className="App">
       <SearchMovies addFavorite={addFavorite}/>
-      <FavoritesList favorites={favorites}/>
+      <FavoritesList favorites={favorites} removeFavorite={removeFavorite}/>
     </div>
   );
 }
